@@ -5,9 +5,6 @@ language: c
 
 matrix:
   include:
-    - os: osx
-      compiler: clang
-
     - os: linux
       arch: amd64
       compiler: clang
@@ -16,17 +13,14 @@ matrix:
       compiler: gcc
 
     - os: linux
-      arch: arm64
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
       compiler: clang
     - os: linux
-      arch: arm64
-      compiler: gcc
-
-    - os: linux
-      arch: s390x
-      compiler: clang
-    - os: linux
-      arch: s390x
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
       compiler: gcc
 
 script: ./tests/travis.sh
